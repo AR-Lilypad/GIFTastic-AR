@@ -26,9 +26,18 @@ button {
     font-weight: bold;
 }
 
+button:hover {
+    text-shadow: .5px .5px 1px #000;
+}
+
 div, form, input {
     margin: 15px;
     font-weight: bold;
+}
+
+div {
+    font-size: 12px;
+    font-weight: normal;
 }
 
 #gifAdd-form {
@@ -48,18 +57,11 @@ div, form, input {
 .gifLayouts  {
     display: block;
 }
+
 .inline {
     display: inline-block
 }
 
-/* 
-.gifLayouts {
-    display: flex;
-    float: left;
-    /* flex-wrap: wrap; */
-    justify-content: space-evenly;
-/* } 
-/* 
-#gifsHere {
-    display: flex; */
-/* } */
+.animatedGIF {
+    border: 2px solid lightgrey;
+    }
