@@ -25,10 +25,14 @@ function createButtons() {                                              // to di
     // This function handles events where a movie button is clicked
     $("#add-gif").on("click", function (event) {
         event.preventDefault();
-        
-        var gif = $("#gif-input").val().trim();                           // This line grabs the input from the textbox
-        topics.push(gif);                                                 // Adding gifs from the textbox to our array                        
-        createButtons();                                                  // Call function to render buttons
+        // This line grabs the input from the textbox
+        var gif = $("#gif-input").val().trim();
+
+        // Adding movie from the textbox to our array
+        topics.push(gif);
+
+        // Calling renderButtons which handles the processing of our movie array
+        createButtons();
     });
 
 }
