@@ -37,16 +37,27 @@ function getGIFs() {                                                 // display 
     }).then(function (response) {
         console.log(response);
         var response = response.data;
-        
-        var giphyDiv = $("<div class='giphy'>");
-        var rating = response.rating;
-        var ratingCopy = $("<p>").text("Rating: " + rating);
-        giphyDiv.append(ratingCopy);
+        for(loop) response.data   //here
+        // var giphyDiv = $("<div>");
+        // var gifImage= $("<img>");
+
+
+
+
+
+        // var rating = response.rating;
+        // var ratingCopy = $("<p>").text("Rating: " + rating);
+        // giphyDiv.append(ratingCopy);
+
+
     });
 }
 
 
 
-getGIFs();
+// getGIFs();
 
 
+// onclick events-    button appears
+// onclick events-    gif appears
+// onclick events-    newButton and submit
