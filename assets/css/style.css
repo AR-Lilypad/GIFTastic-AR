@@ -42,14 +42,23 @@ div, form, input {
     text-align: center;
 }
 
+.row {
+   clear: both;
+}
+.gifLayouts  {
+    display: block;
+}
+.inline {
+    display: inline-block
+}
+
+/* 
 .gifLayouts {
     display: flex;
     float: left;
     /* flex-wrap: wrap; */
     justify-content: space-evenly;
-/* float: left;
-clear: left; */
-}
+/* } 
 /* 
 #gifsHere {
     display: flex; */
