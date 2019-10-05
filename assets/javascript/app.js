@@ -22,15 +22,16 @@ function createButtons() {                                              // to di
         })
     }
 
-    // This function handles events where a movie button is clicked
-    $("#add-gif").on("click", function (event) {
+    $("#gifAdd-form").on("click", function (event) {
         event.preventDefault();
+        var newGif = $("#gif-input").val().trim();                           // This line grabs the input from the textbox
+        $("#gif-input").val("");
+        if (topics.includes(newGif) === false && newGif !== "") {            
+        topics.push(newGif);                                                  // Adding gifs from the textbox to our array
+            createButtons();                                                  // Call function to render buttons
+        }
 
-        var gif = $("#gif-input").val().trim();                           // This line grabs the input from the textbox
-        topics.push(gif);                                                 // Adding gifs from the textbox to our array                        
-        createButtons();                                                  // Call function to render buttons
     });
-
 }
 createButtons();
 
@@ -50,25 +51,25 @@ function getGIFs() {                                                      // dis
 
         for (var i = 0; i < response.length; i++) {                       // loop results of the array for individual topics
             var giphyDiv = $("#gifsHere");                                // container for the individual gifs
-            var gifHolder = $("<div class='inline'>");                                 
+            var gifHolder = $("<div class='inline'>");
             var gifImg = $("<img class='animatedGIF'>");                         // image tag
-            gifImg.attr("data-state", "still"); 
-            console.log(gifImg);                                   
+            gifImg.attr("data-state", "still");
+            console.log(gifImg);
             gifImg.attr("src", response[i].images.fixed_height_still.url);    //src attribute of results data properties
             gifImg.attr("data-still", response[i].images.fixed_height_still.url);
-            gifImg.attr("data-animate", response[i].images.fixed_height_still.url);
-            
+            gifImg.attr("data-animate", response[i].images.fixed_height.url);
+
             var rating = response[i].rating;                              // ratings to display for the gifs
             var ratingCopy = $("<p>").text("Rating: " + rating);          // p tag for ratings display on html
-            
+
             gifHolder.append(ratingCopy);                                  // adds the rating and image to the giphyDiv
             gifHolder.append(gifImg);
             $("#gifsHere").prepend(gifHolder);                             // 'prints giphy to html
         }
         $(".animatedGIF").on("click", function () {                             //setting up the still/animate/still function
-            
+
             var state = $(this).attr("data-state");
-    
+
             if (state === "still") {                                             // If the image's state is still, update its src attribute to what its data-animate value is. 
                 $(this).attr("src", $(this).attr("data-animate"));               // Then, set the image's data-state to animate
                 $(this).attr("data-state", "animate");
